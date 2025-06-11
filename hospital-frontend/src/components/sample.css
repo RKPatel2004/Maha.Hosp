@@ -1,0 +1,84 @@
+/* .navbar {
+    margin-left: 35%;
+    margin-top: 0px;
+    position: fixed;
+    top: 0px;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-item {
+    display: inline-block;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 110px;
+    height: 50px;
+    color: #ffffff;
+}
+
+.navbar-item:hover {
+    font-weight: 600;
+    color: grey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#home {
+    background-color: #DF5A26;
+}
+
+#login {
+    background-color: #6AA63B;
+}
+
+#about {
+    background-color: #5122B4;
+}
+
+#contact {
+    background-color: #FBC700;
+}
+
+.title {
+    color: black;
+    font-family: Calibri;
+    text-decoration: underline;
+    margin-top: 80px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.form {
+    text-align: center;
+    line-height: 5px;
+    margin-bottom: 20px;
+}
+
+span {
+    font-weight: 600;
+    font-size: 1.0rem;
+    text-align: justify;
+}
+
+button {
+    margin-right: 10px;
+    height: 40px;
+    width: 80px;
+}
+
+input {
+    margin-right: 10px;
+    height: 35px;
+    width: 200px;
+}
+
+select {
+    margin-right: 10px;
+    height: 35px;
+    width: 200px;
+}
+
+.start-icon {
+    color: red;
+} */

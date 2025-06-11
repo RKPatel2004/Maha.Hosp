@@ -1,0 +1,198 @@
+.careerform-header-bg {
+    background: #f1f4f8;
+    padding: 40px 0 20px 0;
+    text-align: center;
+}
+
+.careerform-header h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.careerform-breadcrumb {
+    color: #888888;
+    font-size: 1rem;
+}
+
+.careerform-breadcrumb a {
+    color: blue;
+}
+
+.careerform-main-content {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 30px 0 60px 0;
+}
+
+.careerform-cta {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.careerform-cta-small {
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.careerform-bold {
+    font-weight: 700;
+    color: #1a237e;
+}
+
+.careerform-cta h2 {
+    font-size: 1.7rem;
+    margin: 8px 0 0 0;
+    font-weight: 400;
+}
+
+.careerform-cta h3 {
+    color: #1a237e;
+}
+
+.careerform-content-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.careerform-email {
+    grid-column: 1 / 2;
+    /* Place in first column */
+    grid-row: 2 / 3;
+    /* Place in second row */
+}
+
+.careerform-gender-select {
+    grid-column: 2 / 2;
+    grid-row: 2 / 3;
+}
+
+.careerform-qualification {
+    grid-column: 1 / 2;
+    grid-row: 3 / 3;
+}
+
+.careerform-experience {
+    grid-column: 2 / 2;
+    grid-row: 3 / 3;
+    height: 45px;
+}
+
+.careerform-remark {
+    height: 145px;
+    margin-top: -45px;
+    width: 644px;
+}
+
+.careerform-file-upload {
+    margin: 10px 0 0 0;
+    width: 100%;
+    max-width: fit-content;
+}
+
+.careerform-file-input {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    background: #fff;
+    color: #555;
+}
+
+.careerform-submit-button {
+    margin-top: 10px;
+}
+
+.careerform-send-message {
+    height: 35px;
+    background-color: #b71c1c;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.plus-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.careerform-send-message:hover .plus-icon {
+    transform: rotate(90deg);
+}
+
+.careerform-content-2 {
+    margin-top: 60px;
+}
+
+.careerform-spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.careerform-spinner {
+    display: flex;
+    gap: 12px;
+}
+
+.careerform-spinner-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #b71c1c;
+    animation: careerform-bounce 1s infinite alternate;
+}
+
+.careerform-spinner-dot:nth-child(2) {
+    background: #1a237e;
+    animation-delay: 0.2s;
+}
+
+.careerform-spinner-dot:nth-child(3) {
+    background: #388e3c;
+    animation-delay: 0.4s;
+}
+
+@keyframes careerform-bounce {
+    to {
+        transform: translateY(-22px);
+        opacity: 0.7;
+    }
+}
+
+.careerform-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.careerform-popup-message {
+    background: #e8f5e9;
+    color: #388e3c;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 32px 46px;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(56, 142, 60, 0.12);
+    border: 2px solid #388e3c;
+    text-align: center;
+}

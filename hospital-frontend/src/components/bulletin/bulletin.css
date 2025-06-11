@@ -1,0 +1,166 @@
+.bulletin-main-bg {
+  background: #f9f9fb;
+  min-height: 100vh;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.bulletin-header {
+  background: #f2f3f7;
+  padding: 40px 0 20px 0;
+  text-align: center;
+  position: relative;
+}
+
+.bulletin-header h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #222;
+  text-align: center;
+}
+
+.breadcrumb {
+  margin-top: 8px;
+  color: #888;
+  font-size: 1rem;
+}
+
+.bulletin-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #e5e5e5;
+  padding: 40px 30px 30px 30px;
+  margin-top: -30px;
+  /* min-height: 70vh; */
+}
+
+.bulletin-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #222;
+  text-align: left;
+}
+
+.bulletin-searchbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.bulletin-searchbar input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+}
+
+.search-btn, .reset-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.search-btn {
+  background-color: #233d7b;
+  color: #fff;
+}
+
+.reset-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.bulletin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.bulletin-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 24px;
+}
+
+.bulletin-img {
+  width: fit-content;
+  height: 110px;
+  object-fit: cover;
+  background: #f8f8f8;
+}
+
+.bulletin-info {
+  flex: 1;
+}
+
+.bulletin-item-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #1a1a1a;
+}
+
+.bulletin-item-desc {
+  font-size: 1rem;
+  color: #444;
+  margin: 0;
+}
+
+.bulletin-pagination {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-start;
+  margin-top: 28px;
+}
+
+.bulletin-pagination button {
+  background: #f2f3f7;
+  border: 1px solid #d3d3d3;
+  color: #222;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.bulletin-pagination button.active,
+.bulletin-pagination button:hover:not(:disabled) {
+  background: #233d7b;
+  color: #fff;
+}
+
+.bulletin-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bulletin-count {
+  margin-top: 10px;
+  color: #666;
+  font-size: 1rem;
+}
+
+.no-bulletins {
+  color: #e74c3c;
+  font-weight: 600;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 0;
+  color: #233d7b;
+  font-size: 1.2rem;
+}

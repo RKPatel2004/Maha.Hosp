@@ -1,0 +1,137 @@
+.healthplans-page {
+  background: #f7f9fc;
+  min-height: 100vh;
+}
+
+.healthplans-header {
+  text-align: center;
+  padding: 3rem 0 2rem 0;
+  background: #eaeef7;
+}
+
+.healthplans-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.breadcrumb {
+  color: #888;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.healthplans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 2.5rem auto 0 auto;
+  padding: 0 1.5rem;
+}
+
+.plan-card {
+  background: #f2f5fa;
+  box-shadow: 0 4px 18px rgba(80, 100, 140, 0.09);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+  position: relative;
+}
+
+.plan-card:hover {
+  box-shadow: 0 8px 32px rgba(80, 100, 140, 0.16);
+}
+
+.plan-image-container {
+  position: relative;
+  background: #e5eaf6;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plan-image {
+  max-width: 90%;
+  max-height: 180px;
+  object-fit: contain;
+  margin: auto;
+}
+
+.plan-image:hover {
+  transform: scale(1.20);
+}
+
+.pdf-icon-link {
+  position: absolute;
+  bottom: 14px;
+  right: 18px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 2px 8px rgba(80, 100, 140, 0.11);
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.pdf-icon-link:hover {
+  background: #f44336;
+}
+
+.pdf-icon {
+  color: #e53935;
+  font-size: 1.8rem;
+  transition: color 0.2s;
+}
+
+.pdf-icon-link:hover .pdf-icon {
+  color: #fff;
+}
+
+.plan-content {
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.plan-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2a3558;
+  margin-bottom: 0.2rem;
+}
+
+.plan-type {
+  color: #3b4a6b;
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.plan-hospital {
+  color: #7b8ba4;
+  font-size: 0.98rem;
+}
+
+.plan-price {
+  margin-top: 0.7rem;
+  font-size: 1.07rem;
+  color: #1e2f5c;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .healthplans-header {
+    padding: 2rem 0 1.2rem 0;
+  }
+  .healthplans-header h1 {
+    font-size: 2rem;
+  }
+  .plan-content {
+    padding: 1rem 0.8rem 1rem 0.8rem;
+  }
+}
