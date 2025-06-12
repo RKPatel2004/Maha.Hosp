@@ -54,7 +54,7 @@ const PrivatePolicy = () => {
       <div className="privacy-banner">
         <h1>Privacy Policy</h1>
         <div className="breadcrumb">
-          <a href="/">Home</a> / Privacy Policy
+          <a href="/">Home</a> <span> / Privacy Policy </span>
         </div>
       </div>
 

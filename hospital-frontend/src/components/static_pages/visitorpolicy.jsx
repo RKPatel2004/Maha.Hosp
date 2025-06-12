@@ -54,7 +54,7 @@ const VisitorPolicy = () => {
       <div className="visitor-banner">
         <h1>Visitor Policy</h1>
         <div className="breadcrumb">
-          <a href="/">Home</a> / Visitor Policy
+          <a href="/">Home</a> <span> / Visitor Policy </span>
         </div>
       </div>
 

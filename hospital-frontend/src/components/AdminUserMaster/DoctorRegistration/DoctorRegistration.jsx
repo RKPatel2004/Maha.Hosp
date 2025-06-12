@@ -458,14 +458,12 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
             <button 
               className={`tab-btn ${activeTab === 'manage' ? 'active' : ''}`}
               onClick={() => handleTabClick('manage')}
-              // disabled={editMobileNo}
             >
               Manage
             </button>
             <button 
               className={`tab-btn ${activeTab === 'view' ? 'active' : ''}`}
               onClick={() => handleTabClick('view')}
-              // disabled={editMobileNo}
             >
               View
             </button>
@@ -489,7 +487,7 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
               <div className="search-section">
                 <label htmlFor="mobileSearch">Mobile No. *</label>
                 <div className="search-container">
-                  <div className="mobile-input">
+                  <div className="DR-mobile-input">
                     <span className="country-code">+91</span>
                     <input
                       id="mobileSearch"

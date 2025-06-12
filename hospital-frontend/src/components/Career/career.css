@@ -20,6 +20,11 @@
   color: blue;
 }
 
+.career-breadcrumb span{
+  color: #535353;
+  font-weight: 600;
+}
+
 .career-main-content {
   max-width: 650px;
   margin: 0 auto;

@@ -34,7 +34,7 @@ const Career = () => {
         <div className="career-header">
           <h1>Career with Us</h1>
           <div className="career-breadcrumb">
-            <a href="/">Home</a> / Career
+            <a href="/">Home</a> <span> / Career </span>
           </div>
         </div>
       </div>

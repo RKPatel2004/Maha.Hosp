@@ -19,13 +19,52 @@ const SubmitFeedbackForm = async (req, res) => {
             Appreciation,
             CorrectiveActions
         } = req.body;
+        
+        // Debug: Check if req.user exists
+        console.log("req.user:", req.user);
+        
+        // Check if user is authenticated
+        if (!req.user) {
+            return res.status(401).json({
+                success: false,
+                message: "User not authenticated. Please login first."
+            });
+        }
+        
+        // Get UserID from authenticated user token
+        const UserID = req.user.userId;
+        
+        console.log("Extracted UserID:", UserID);
+        
+        if (!UserID) {
+            return res.status(400).json({
+                success: false,
+                message: "User ID not found in token",
+                userObject: req.user
+            });
+        }
 
+        // Check if user has already submitted feedback in the last 24 hours
+        const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+        
+        const existingFeedback = await Feedback_1.findOne({
+            UserID: UserID,
+            FeedbackDate: { $gte: twentyFourHoursAgo }
+        });
+
+        if (existingFeedback) {
+            return res.status(429).json({
+                success: false,
+                message: "You can only submit one feedback per day. Please try again after 24 hours."
+            });
+        }
+        
         // Generate auto-incremented _id
         const _id = await generateAutoIncrementedId();
 
         const feedbackForm = new Feedback_1({
             _id,
-            UserID: 17, // Ideally, get this from authenticated user
+            UserID: UserID,
             FeedbackDate: Date.now(),
             Complains,
             Suggestions,

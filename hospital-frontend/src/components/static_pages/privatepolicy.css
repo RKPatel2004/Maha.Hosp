@@ -30,6 +30,11 @@
   .breadcrumb a:hover {
     text-decoration: underline;
   }
+
+  .breadcrumb span{
+    color: #535353;
+    font-weight: 600;
+  }
   
   .privacy-content {
     max-width: 1200px;

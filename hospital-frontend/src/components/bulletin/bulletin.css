@@ -164,3 +164,7 @@
   color: #233d7b;
   font-size: 1.2rem;
 }
+
+.breadcrumb span{
+  color: #535353;
+}

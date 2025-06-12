@@ -22,6 +22,10 @@
   margin-top: 0.5rem;
 }
 
+.breadecrumb pan {
+  color: #535353;
+}
+
 .healthplans-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));

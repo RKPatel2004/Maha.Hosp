@@ -140,10 +140,10 @@ const ViewRegisteredDoctors = () => {
             <Sidebar activeMenuItem="doctor-registration" />
             <div className="view-doctors-container">
                 <div className="view-doctors-header">
-                    <div className="header-nav">
+                    {/* <div className="header-nav">
                         <span className="nav-icon">👨‍⚕️</span>
                         <span className="nav-text">View</span>
-                    </div>
+                    </div> */}
                     <h1 className="page-title">View Doctor Registration</h1>
                 </div>
 
@@ -173,10 +173,10 @@ const ViewRegisteredDoctors = () => {
                         </div>
                     </div>
                     <div className="search-buttons">
-                        <button className="search-btn" onClick={handleSearch}>
+                        <button className="VRD-search-btn" onClick={handleSearch}>
                             Search
                         </button>
-                        <button className="reset-btn" onClick={handleReset}>
+                        <button className="VRD-reset-btn" onClick={handleReset}>
                             Reset
                         </button>
                     </div>

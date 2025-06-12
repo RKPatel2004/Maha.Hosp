@@ -232,7 +232,7 @@ const EditProfile = () => {
                                 <img
                                     src={previewImage || '/assets/ProfilePhoto/default_dp.png'}
                                     alt="Profile"
-                                    className="profile-image"
+                                    className="editProfile-profile-image"
                                 />
                                 <button 
                                     className="upload-btn" 
@@ -334,14 +334,14 @@ const EditProfile = () => {
                         {/* Action Buttons */}
                         <div className="action-buttons">
                             <button
-                                className="save-btn"
+                                className="editprofile-save-btn"
                                 onClick={handleSave}
                                 disabled={saving}
                             >
                                 {saving ? 'Saving...' : 'Save'}
                             </button>
                             <button
-                                className="cancel-btn"
+                                className="editprofile-cancel-btn"
                                 onClick={handleCancel}
                             >
                                 Cancel

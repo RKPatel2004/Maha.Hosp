@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./sidebar.css";
 import MahavirLogo from "../../../assets/Mahavir/mahavir_icon.png";
-import DashboardIcon from "../../../assets/Admin_icons/dashboard_icon.png";
 import EditProfileIcon from "../../../assets/Admin_icons/edit_profile_icon.png";
 import FeedbackIcon from "../../../assets/Admin_icons/feedback_icon.png";
 import RelationIcon from "../../../assets/Admin_icons/relation_icon.png";
@@ -13,15 +12,9 @@ const Sidebar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(true);
-    const [activeItem, setActiveItem] = useState('dashboard');
+    const [activeItem, setActiveItem] = useState('edit-profile');
 
     const menuItems = [
-        {
-            id: 'dashboard',
-            label: 'Dashboard',
-            icon: DashboardIcon,
-            path: '/admin/dashboard'
-        },
         {
             id: 'edit-profile',
             label: 'Edit Profile',
@@ -63,7 +56,7 @@ const Sidebar = () => {
         if (currentItem) {
             setActiveItem(currentItem.id);
         } else if (currentPath === '/admin') {
-            setActiveItem('dashboard');
+            setActiveItem('edit-profile');
         }
     }, [location.pathname]);
 

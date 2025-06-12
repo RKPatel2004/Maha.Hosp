@@ -94,24 +94,24 @@
   align-items: end;
 }
 
-.mobile-input {
+.DR-mobile-input {
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
   flex: 1;
-  max-width: 160px; /* Reduced width */
-  height: 32px; /* Reduced height */
+  max-width: 160px; 
+  height: 32px; 
 }
 
 .country-code {
   background: #f8f9fa;
-  padding: 6px 8px; /* Reduced padding */
+  padding: 6px 8px;
   border-right: 1px solid #ddd;
   font-weight: 500;
   color: #666;
-  font-size: 13px; /* Reduced font size */
+  font-size: 13px; 
 }
 
 .mobile-input input {

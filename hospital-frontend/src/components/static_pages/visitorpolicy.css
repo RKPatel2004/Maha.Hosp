@@ -31,6 +31,10 @@
     text-decoration: underline;
 }
 
+.breadcrumb span {
+    color: #535353;
+    font-weight: 600;
+}
 .visitor-content {
     max-width: 1200px;
     margin: 0 auto;

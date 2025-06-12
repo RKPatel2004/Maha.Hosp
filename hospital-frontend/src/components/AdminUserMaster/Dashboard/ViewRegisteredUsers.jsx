@@ -140,10 +140,10 @@ const ViewRegisteredUsers = () => {
             <Sidebar activeMenuItem="user-registration" />
             <div className="view-users-container">
                 <div className="view-users-header">
-                    <div className="header-nav">
+                    {/* <div className="header-nav">
                         <span className="nav-icon">👁</span>
                         <span className="nav-text">View</span>
-                    </div>
+                    </div> */}
                     <h1 className="page-title">View User Registration</h1>
                 </div>
 

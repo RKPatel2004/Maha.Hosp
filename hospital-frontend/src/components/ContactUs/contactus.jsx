@@ -109,7 +109,7 @@ const ContactUs = () => {
         </div>
         <h1>Contact Us</h1>
         <div className="breadcrumb">
-          <a href="/">Home</a> / Contact Us
+          <a href="/">Home</a> <span> / Contact Us </span>
         </div>
       </div>
 

@@ -19,8 +19,12 @@
 
 .breadcrumb {
   font-size: 0.9rem;
-  color: #666;
+  color: #535353;
   font-weight: 500;
+}
+
+.breadcrumb span {
+  color: #535353;
 }
 
 .about-us-content {

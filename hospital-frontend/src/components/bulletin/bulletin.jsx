@@ -61,7 +61,7 @@ const Bulletin = () => {
       <div className="bulletin-header">
         <h2>Bulletin</h2>
         <div className="breadcrumb">
-          <a href="/">Home</a> / Bulletin
+          <a href="/">Home</a> <span> / Bulletin </span>
         </div>
       </div>
       <div className="bulletin-content">

@@ -54,7 +54,7 @@ const TermsCondition = () => {
       <div className="terms-banner">
         <h1>Terms & Conditions</h1>
         <div className="breadcrumb">
-          <a href="/">Home</a> / Terms & Conditions
+          <a href="/">Home</a> <span> / Terms & Conditions </span>
         </div>
       </div>
 

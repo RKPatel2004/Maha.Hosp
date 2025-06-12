@@ -91,10 +91,8 @@ const AboutUs = () => {
     return titleResult ? titleResult[1].trim() : "Feature";
   };
 
-  // Helper function to extract content without the numbering/title part
   const extractContent = (paragraph) => {
     const content = paragraph.paragraph1 || paragraph.paragraph2 || paragraph.paragraph3 || '';
-    // Remove the numbering part (e.g., "01. High Quality Healthcare")
     return content.replace(/^\d+\.\s+[^&]+&nbsp;/, '').replace(/&nbsp;/g, ' ');
   };
 
@@ -107,7 +105,7 @@ const AboutUs = () => {
         <div className="about-us-banner">
           <h1>About Us</h1>
           <div className="breadcrumb">
-            <a href="/">Home</a> / Why Mahavir?
+            <a href="/">Home</a><span> / Why Mahavir? </span>
           </div>
         </div>
 
