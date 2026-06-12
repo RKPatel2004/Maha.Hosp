@@ -2,7 +2,6 @@ const UserMaster = require("../../models/UserMaster");
 const otpStore = require("../../utils/otpStore");
 const bcrypt = require("bcryptjs");
 
-// Normalize mobile number
 function normalizeMobileNo(mobileNo) {
     if (!mobileNo) return null;
     if (mobileNo.startsWith("91") && mobileNo.length === 12) return mobileNo;
@@ -10,7 +9,6 @@ function normalizeMobileNo(mobileNo) {
     return null;
 }
 
-// Step 1: Send OTP if user exists
 const sendOtpIfUserExists = async (req, res) => {
     let { mobileNo } = req.body;
     mobileNo = normalizeMobileNo(mobileNo);
@@ -34,7 +32,6 @@ const sendOtpIfUserExists = async (req, res) => {
     res.json({ message: "OTP sent successfully", MobileNo: mobileNo, OTP: otp });
 };
 
-// Step 2: Verify OTP
 const verifyOtp = (req, res) => {
     let { mobileNo, otp } = req.body;
     mobileNo = normalizeMobileNo(mobileNo);
@@ -61,7 +58,6 @@ const verifyOtp = (req, res) => {
     res.json({ message: "OTP verified" });
 };
 
-// Step 3: Reset Password
 const resetPassword = async (req, res) => {
     const { mobileNo, newPassword, confirmPassword } = req.body;
     const normalizedNo = normalizeMobileNo(mobileNo);

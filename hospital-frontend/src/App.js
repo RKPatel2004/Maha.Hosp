@@ -41,18 +41,15 @@ const LogoutComponent = () => {
   React.useEffect(() => {
     const performLogout = async () => {
       try {
-        // Get token from localStorage or sessionStorage
         const authToken = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
         const adminToken = sessionStorage.getItem('adminToken');
         
-        // Use the token that exists
         const token = authToken || adminToken;
         
         if (token) {
-          // Make API call to backend logout endpoint
           const response = await axios.post(
             'http://localhost:5000/MahavirHospital/api/logout',
-            {}, // Empty body
+            {}, 
             {
               headers: {
                 'Authorization': `Bearer ${token}`,
@@ -68,7 +65,6 @@ const LogoutComponent = () => {
           setMessage('No active session found. Redirecting...');
         }
         
-        // Clear all authentication data from storage
         localStorage.removeItem('authToken');
         localStorage.removeItem('userInfo');
         sessionStorage.removeItem('adminToken');
@@ -76,7 +72,6 @@ const LogoutComponent = () => {
         
         setLogoutStatus('success');
         
-        // Redirect after a short delay
         setTimeout(() => {
           window.location.href = '/login';
         }, 2000);
@@ -84,7 +79,6 @@ const LogoutComponent = () => {
       } catch (error) {
         console.error('Logout error:', error);
         
-        // Even if API call fails, clear local storage and redirect
         localStorage.removeItem('authToken');
         localStorage.removeItem('userInfo');
         sessionStorage.removeItem('adminToken');
@@ -245,7 +239,6 @@ function App() {
             }
           />
 
-          {/* All Admin Routes - Same Component, Different URLs */}
           <Route
             path="/admin"
             element={
@@ -313,7 +306,6 @@ function App() {
             }
           />
 
-          {/* AdminUserMaster routes */}
           <Route
             path="/admin-user-master/dashboard"
             element={
@@ -354,7 +346,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* Add separate route for ViewDoctors if you want direct access */}
           <Route
             path="/admin-user-master/view-doctors"
             element={
@@ -364,7 +355,6 @@ function App() {
             }
           />
 
-          {/* Login and Logout Routes */}
           <Route
             path="/login"
             element={<Login />}
@@ -374,7 +364,6 @@ function App() {
             element={<LogoutComponent />}
           />
 
-          {/* Catch-all route - keep this at the end */}
           <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
       </div>

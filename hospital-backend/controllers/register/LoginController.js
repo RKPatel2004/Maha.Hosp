@@ -2,18 +2,16 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const UserMaster = require("../../models/UserMaster");
 
-// Normalize mobile number (ensure consistency)
 function normalizeMobileNo(mobileNo) {
     if (!mobileNo) return null;
     if (mobileNo.startsWith("91") && mobileNo.length === 12) {
-        return mobileNo.slice(2); // Return only 10-digit mobile
+        return mobileNo.slice(2); 
     } else if (mobileNo.length === 10) {
         return mobileNo;
     }
     return null;
 }
 
-// Login Controller
 const loginUser = async (req, res) => {
     try {
         const { MobileNo, UserPassword } = req.body;
@@ -35,7 +33,6 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ message: "Invalid password" });
         }
 
-        // Create JWT token
         const token = jwt.sign(
             { userId: user._id, mobile: user.MobileNo, role: user.UserTypeID },
             process.env.JWT_SECRET,

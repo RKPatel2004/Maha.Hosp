@@ -5,7 +5,6 @@ const HealthPlanTypeMaster = require("../models/HealthPlanTypeMaster");
 
 const getAllHealthPlans = async (req, res) => {
   try {
-    // Find all health plans and populate the reference fields
     const healthPlans = await HealthPlanMaster.find({})
       .populate({
         path: "HospitalID",

@@ -1,13 +1,10 @@
 const Feedback_1 = require("../../models/Feedback_1");
 
-// Helper function to generate an auto-incremented _id
 async function generateAutoIncrementedId() {
-    // Find the document with the highest _id
     const lastFeedback = await Feedback_1.findOne({}, { _id: 1 })
         .sort({ _id: -1 })
         .lean();
 
-    // If collection is empty, start from 1, else increment the max _id by 1
     return lastFeedback ? lastFeedback._id + 1 : 1;
 }
 
@@ -20,10 +17,8 @@ const SubmitFeedbackForm = async (req, res) => {
             CorrectiveActions
         } = req.body;
         
-        // Debug: Check if req.user exists
         console.log("req.user:", req.user);
         
-        // Check if user is authenticated
         if (!req.user) {
             return res.status(401).json({
                 success: false,
@@ -31,7 +26,6 @@ const SubmitFeedbackForm = async (req, res) => {
             });
         }
         
-        // Get UserID from authenticated user token
         const UserID = req.user.userId;
         
         console.log("Extracted UserID:", UserID);
@@ -44,7 +38,6 @@ const SubmitFeedbackForm = async (req, res) => {
             });
         }
 
-        // Check if user has already submitted feedback in the last 24 hours
         const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
         
         const existingFeedback = await Feedback_1.findOne({
@@ -59,7 +52,6 @@ const SubmitFeedbackForm = async (req, res) => {
             });
         }
         
-        // Generate auto-incremented _id
         const _id = await generateAutoIncrementedId();
 
         const feedbackForm = new Feedback_1({
@@ -72,7 +64,6 @@ const SubmitFeedbackForm = async (req, res) => {
             CorrectiveActions
         });
 
-        // Save the feedback form and wait for completion
         await feedbackForm.save();
 
         res.status(200).json({

@@ -5,21 +5,16 @@ const HospitalMaster = require('../models/HospitalMaster');
 
 exports.getCareerOpenings = async (req, res) => {
     try {
-        // Get today's date in IST (Indian Standard Time), set hours/minutes/seconds to 0 for date-only comparison
         const todayIST = new Date();
-        todayIST.setHours(todayIST.getHours() + 5.5); // Convert UTC to IST
+        todayIST.setHours(todayIST.getHours() + 5.5); 
         todayIST.setHours(0, 0, 0, 0);
 
-        // Find all active career openings
         const careerOpenings = await CareerOpening.find({ IsActive: true });
 
-        // Track IDs to deactivate
         const toDeactivateIds = [];
 
-        // Check for expired openings and collect their IDs
         for (const opening of careerOpenings) {
             if (opening.EndDate) {
-                // Set time to 0 for date-only comparison
                 const endDateIST = new Date(opening.EndDate);
                 endDateIST.setHours(0, 0, 0, 0);
 
@@ -29,7 +24,6 @@ exports.getCareerOpenings = async (req, res) => {
             }
         }
 
-        // Deactivate expired openings in bulk
         if (toDeactivateIds.length > 0) {
             await CareerOpening.updateMany(
                 { _id: { $in: toDeactivateIds } },
@@ -37,10 +31,8 @@ exports.getCareerOpenings = async (req, res) => {
             );
         }
 
-        // Fetch active openings again after deactivation
         const activeCareerOpenings = await CareerOpening.find({ IsActive: true });
 
-        // Build the flat careers array as before, now including IDs
         const careersFlat = await Promise.all(activeCareerOpenings.map(async (opening) => {
             const designation = await DesignationMaster.findOne({ _id: opening.DesignationID });
             const department = await DepartmentMaster.findOne({ _id: opening.DepartmentID });
@@ -65,7 +57,6 @@ exports.getCareerOpenings = async (req, res) => {
             };
         }));
 
-        // Group by DepartmentName
         const grouped = {};
         for (const item of careersFlat) {
             if (!grouped[item.DepartmentName]) {
@@ -82,7 +73,6 @@ exports.getCareerOpenings = async (req, res) => {
             });
         }
 
-        // Transform into desired array format
         const result = Object.keys(grouped).map(dept => ({
             DepartmentName: dept,
             Openings: grouped[dept]
