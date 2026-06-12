@@ -26,6 +26,9 @@ import ViewRegisteredDoctors from './components/AdminUserMaster/Dashboard/ViewRe
 import DoctorRegistration from './components/AdminUserMaster/DoctorRegistration/DoctorRegistration';
 import ViewDoctors from './components/AdminUserMaster/DoctorRegistration/ViewDoctors';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = true; 
   if (!isAuthenticated) {
@@ -48,7 +51,7 @@ const LogoutComponent = () => {
         
         if (token) {
           const response = await axios.post(
-            'http://localhost:5000/MahavirHospital/api/logout',
+            `${BASE_URL}/MahavirHospital/api/logout`,
             {}, 
             {
               headers: {

@@ -4,6 +4,9 @@ import Sidebar from '../AdminUserMasterSideBar/sidebar';
 import DoctorRegistration from './DoctorRegistration';
 import './ViewDoctors.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const ViewDoctors = () => {
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,7 +22,7 @@ const ViewDoctors = () => {
     const fetchDoctors = async () => {
       try {
         const token = sessionStorage.getItem('adminToken') || sessionStorage.getItem('authToken');
-        const response = await axios.get('http://localhost:5000/MahavirHospital/api/doctors', {
+        const response = await axios.get(`${BASE_URL}/MahavirHospital/api/doctors`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -191,7 +194,7 @@ const ViewDoctors = () => {
                           {/* <div className="VD-doctor-avatar">
                             {doctor.FilePath && doctor.FilePath !== "N/A" ? (
                               <img 
-                                src={`http://localhost:5000/${doctor.FilePath}`} 
+                                src={`${BASE_URL}/${doctor.FilePath}`} 
                                 alt="Profile" 
                                 className="VD-avatar-image"
                                 onError={(e) => {

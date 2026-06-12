@@ -5,6 +5,9 @@ import Footer from "../header_footer/footer";
 import "./careerform.css";
 import { FaPlus } from "react-icons/fa";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const Spinner = () => (
   <div className="careerform-spinner-overlay">
     <div className="careerform-spinner">
@@ -101,7 +104,7 @@ const CareerForm = () => {
 
       try {
         await axios.post(
-          "http://localhost:5000/MahavirHospital/api/career-from",
+          `${BASE_URL}/MahavirHospital/api/career-from`,
           formData,
           {
             headers: {

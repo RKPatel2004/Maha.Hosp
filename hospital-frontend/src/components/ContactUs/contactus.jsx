@@ -3,6 +3,9 @@ import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 import './contactus.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const ContactUs = () => {
   const [hospitals, setHospitals] = useState([]);
   const [formData, setFormData] = useState({
@@ -20,7 +23,7 @@ const ContactUs = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/hospitals')
+    fetch(`${BASE_URL}/api/hospitals`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -57,7 +60,7 @@ const ContactUs = () => {
     setSubmitStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch('http://localhost:5000/MahavirHospital/api/contact', {
+      const response = await fetch(`${BASE_URL}/MahavirHospital/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

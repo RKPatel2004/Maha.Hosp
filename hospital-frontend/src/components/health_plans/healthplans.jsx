@@ -4,6 +4,9 @@ import { FaFilePdf } from 'react-icons/fa';
 import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const HealthPlans = () => {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +16,7 @@ const HealthPlans = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/health-plans')
+    fetch(`${BASE_URL}/api/health-plans`)
       .then((res) => res.json())
       .then((result) => {
         if (result.success && Array.isArray(result.data)) {
@@ -27,7 +30,7 @@ const HealthPlans = () => {
   const getImageUrl = (coverImagePath) => {
     if (coverImagePath) {
       // Serve images directly from backend
-      return `http://localhost:5000/${coverImagePath}`;
+      return `${BASE_URL}/${coverImagePath}`;
     }
     // Fallback to default image if no cover image
     return require('../../assets/health_plans/default-plan.jpg'); // Make sure you have a default image
@@ -36,7 +39,7 @@ const HealthPlans = () => {
   // Helper function to get PDF URL
   const getPdfUrl = (filePath) => {
     if (filePath) {
-      return `http://localhost:5000/${filePath}`;
+      return `${BASE_URL}/${filePath}`;
     }
     return null;
   };

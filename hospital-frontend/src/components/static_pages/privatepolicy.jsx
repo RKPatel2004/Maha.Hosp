@@ -4,6 +4,9 @@ import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 import './privatepolicy.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const PrivatePolicy = () => {
   const [policyContent, setPolicyContent] = useState('');
   const [loading, setLoading] = useState(true);
@@ -18,7 +21,7 @@ const PrivatePolicy = () => {
     const fetchPrivacyPolicy = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/private-policy');
+        const response = await axios.get(`${BASE_URL}/api/private-policy`);
         if (
           response.data &&
           response.data.success &&

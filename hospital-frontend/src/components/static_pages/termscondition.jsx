@@ -4,6 +4,9 @@ import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 import './termscondition.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const TermsCondition = () => {
   const [termsContent, setTermsContent] = useState('');
   const [loading, setLoading] = useState(true);
@@ -18,7 +21,7 @@ const TermsCondition = () => {
     const fetchTermsCondition = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/terms-condition');
+        const response = await axios.get(`${BASE_URL}/api/terms-condition`);
         if (
           response.data &&
           response.data.success &&

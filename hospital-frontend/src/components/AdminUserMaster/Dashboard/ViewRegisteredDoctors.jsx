@@ -4,6 +4,9 @@ import './ViewRegisteredDoctors.css';
 import Sidebar from '../AdminUserMasterSideBar/sidebar';
 import defaultDP from '../../../assets/ProfilePhoto/default_dp.png';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const ViewRegisteredDoctors = () => {
     const [doctors, setDoctors] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,7 +37,7 @@ const ViewRegisteredDoctors = () => {
             }
 
             const response = await axios.get(
-                'http://localhost:5000/MahavirHospital/api/doctors',
+                `${BASE_URL}/MahavirHospital/api/doctors`,
                 {
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -87,7 +90,7 @@ const ViewRegisteredDoctors = () => {
             }
 
             const response = await axios.post(
-                'http://localhost:5000/MahavirHospital/api/filter-doctors',
+                `${BASE_URL}/MahavirHospital/api/filter-doctors`,
                 searchBody,
                 {
                     headers: {
@@ -132,7 +135,7 @@ const ViewRegisteredDoctors = () => {
 
     const getProfileImage = (filePath) => {
         if (!filePath) return defaultDP;
-        return `http://localhost:5000/${filePath.replace(/\\/g, '/')}`;
+        return `${BASE_URL}/${filePath.replace(/\\/g, '/')}`;
     };
 
     return (

@@ -7,6 +7,9 @@ import aboutus1 from "../../assets/AboutUs/AboutUs1.png";
 import aboutus2 from "../../assets/AboutUs/AboutUs2.png";
 import aboutus3 from "../../assets/AboutUs/AboutUs3.png";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const AboutUs = () => {
   const [historyData, setHistoryData] = useState({
     id: null,
@@ -25,7 +28,7 @@ const AboutUs = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/MahavirHospital/api/hospital-history/1');
+        const response = await axios.get(`${BASE_URL}/MahavirHospital/api/hospital-history/1`);
         console.log('API Response:', response.data);
         
         // Check if response has data and data.data property (from the JSON structure)

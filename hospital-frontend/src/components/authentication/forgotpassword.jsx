@@ -3,6 +3,9 @@ import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 import './forgotpassword.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const ForgotPassword = () => {
   const [step, setStep] = useState(1); // 1: Enter Mobile, 2: Enter OTP, 3: Reset Password
   const [mobileNo, setMobileNo] = useState('');
@@ -36,7 +39,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/MahavirHospital/api/forgot-password/send-otp', {
+      const response = await fetch(`${BASE_URL}/MahavirHospital/api/forgot-password/send-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +76,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/MahavirHospital/api/forgot-password/verify-otp', {
+      const response = await fetch(`${BASE_URL}/MahavirHospital/api/forgot-password/verify-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +120,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/MahavirHospital/api/forgot-password/reset-password', {
+      const response = await fetch(`${BASE_URL}/MahavirHospital/api/forgot-password/reset-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

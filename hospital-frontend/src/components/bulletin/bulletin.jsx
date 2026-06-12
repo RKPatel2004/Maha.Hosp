@@ -4,6 +4,9 @@ import bulletinImage from '../../assets/home/bulletin.png';
 import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const BULLETINS_PER_PAGE = 15;
 
 const Bulletin = () => {
@@ -20,7 +23,7 @@ const Bulletin = () => {
   // Fetch bulletins
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:5000/MahavirHospital/api/bulletins')
+    fetch(`${BASE_URL}/MahavirHospital/api/bulletins`)
       .then(res => res.json())
       .then(data => {
         setBulletins(data.data || []);

@@ -5,6 +5,9 @@ import Navbar from "../header_footer/navbar";
 import Footer from "../header_footer/footer";
 import "./career.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const Career = () => {
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +18,7 @@ const Career = () => {
   });
   useEffect(() => {
     axios
-      .get("http://localhost:5000/MahavirHospital/api/career")
+      .get(`${BASE_URL}/MahavirHospital/api/career`)
       .then((res) => {
         setCareers(res.data.Careers || []);
         setLoading(false);

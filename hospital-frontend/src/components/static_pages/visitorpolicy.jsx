@@ -4,6 +4,9 @@ import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 import './visitorpolicy.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const VisitorPolicy = () => {
   const [visitorContent, setVisitorContent] = useState('');
   const [loading, setLoading] = useState(true);
@@ -18,7 +21,7 @@ const VisitorPolicy = () => {
     const fetchVisitorPolicy = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/visitor-policy');
+        const response = await axios.get(`${BASE_URL}/api/visitor-policy`);
         if (
           response.data &&
           response.data.success &&

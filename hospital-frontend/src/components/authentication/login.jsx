@@ -5,6 +5,9 @@ import './login.css';
 import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const Login = () => {
   const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
@@ -113,7 +116,7 @@ const Login = () => {
         // Special case for admin login
         if (mobileNumber === '9904563000' && password === '123') {
           const response = await axios.post(
-            'http://localhost:5000/MahavirHospital/api/admin-login',
+            `${BASE_URL}/MahavirHospital/api/admin-login`,
             {
               MobileNo: mobileNumber,
               Password: password
@@ -129,7 +132,7 @@ const Login = () => {
         } else {
           // Normal user login
           const response = await axios.post(
-            'http://localhost:5000/MahavirHospital/api/login',
+            `${BASE_URL}/MahavirHospital/api/login`,
             {
               MobileNo: mobileNumber,
               UserPassword: password

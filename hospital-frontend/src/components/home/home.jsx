@@ -11,6 +11,9 @@ import doctorImage from '../../assets/home/lady_doctor.png';
 import bulletinImage from '../../assets/home/bulletin.png';
 import axios from 'axios';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const importAll = (r) => {
   let images = {};
   r.keys().forEach((item) => {
@@ -63,7 +66,7 @@ const Home = () => {
     const fetchMissionVision = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/MahavirHospital/api/misson-vision');
+        const response = await axios.get(`${BASE_URL}/MahavirHospital/api/misson-vision`);
         
         if (response.data.success && response.data.data.length > 0) {
           setMissionVisionData(response.data.data[0]);
@@ -86,7 +89,7 @@ const Home = () => {
     const fetchTPAAffiliations = async () => {
       try {
         setAffiliationLoading(true);
-        const response = await axios.get('http://localhost:5000/MahavirHospital/api/TPAAffiliation');
+        const response = await axios.get(`${BASE_URL}/MahavirHospital/api/TPAAffiliation`);
         
         if (response.data.success && response.data.data) {
           // Format the data for display
@@ -134,7 +137,7 @@ const Home = () => {
     const fetchBulletins = async () => {
       try {
         setBulletinLoading(true);
-        const response = await axios.get('http://localhost:5000/MahavirHospital/api/random-bulletins');
+        const response = await axios.get(`${BASE_URL}/MahavirHospital/api/random-bulletins`);
         
         if (response.data.success && response.data.data) {
           setBulletins(response.data.data);

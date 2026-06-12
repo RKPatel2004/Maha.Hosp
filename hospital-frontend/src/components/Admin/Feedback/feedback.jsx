@@ -16,10 +16,10 @@
 //   require.context("../../../assets/feedbacks", false, /\.(png|jpe?g|svg)$/)
 // );
 
-// const FEEDBACK_QUESTION_API = "http://localhost:5000/MahavirHospital/api/feedback-question";
-// const FEEDBACK_ANSWER_OPTION_API = "http://localhost:5000/MahavirHospital/api/feedback-answer-option";
-// const FEEDBACK_FORM_API = "http://localhost:5000/MahavirHospital/api/feedback-form";
-// const FEEDBACK_DETAIL_API = "http://localhost:5000/MahavirHospital/api/feedback-detail";
+// const FEEDBACK_QUESTION_API = `${BASE_URL}/MahavirHospital/api/feedback-question`;
+// const FEEDBACK_ANSWER_OPTION_API = `${BASE_URL}/MahavirHospital/api/feedback-answer-option`;
+// const FEEDBACK_FORM_API = `${BASE_URL}/MahavirHospital/api/feedback-form`;
+// const FEEDBACK_DETAIL_API = `${BASE_URL}/MahavirHospital/api/feedback-detail`;
 
 // // Desired emoji order
 // const EMOJI_ORDER = ["POOR", "DISSATISFIED", "FAIR", "GOOD", "EXCELLENT"];
@@ -374,6 +374,9 @@ import React, { useEffect, useState } from "react";
 import AdminSideBar from "../AdminSideBar/sidebar";
 import "./feedback.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 // Helper to import all feedback emoji images
 function importAll(r) {
   let images = {};
@@ -388,10 +391,10 @@ const emojiImages = importAll(
   require.context("../../../assets/feedbacks", false, /\.(png|jpe?g|svg)$/)
 );
 
-const FEEDBACK_QUESTION_API = "http://localhost:5000/MahavirHospital/api/feedback-question";
-const FEEDBACK_ANSWER_OPTION_API = "http://localhost:5000/MahavirHospital/api/feedback-answer-option";
-const FEEDBACK_FORM_API = "http://localhost:5000/MahavirHospital/api/feedback-form";
-const FEEDBACK_DETAIL_API = "http://localhost:5000/MahavirHospital/api/feedback-detail";
+const FEEDBACK_QUESTION_API = `${BASE_URL}/MahavirHospital/api/feedback-question`;
+const FEEDBACK_ANSWER_OPTION_API = `${BASE_URL}/MahavirHospital/api/feedback-answer-option`;
+const FEEDBACK_FORM_API = `${BASE_URL}/MahavirHospital/api/feedback-form`;
+const FEEDBACK_DETAIL_API = `${BASE_URL}/MahavirHospital/api/feedback-detail`;
 
 // Desired emoji order
 const EMOJI_ORDER = ["POOR", "DISSATISFIED", "FAIR", "GOOD", "EXCELLENT"];

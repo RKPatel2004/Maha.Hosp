@@ -4,6 +4,9 @@ import './DoctorRegistration.css';
 import Sidebar from '../AdminUserMasterSideBar/sidebar';
 import ViewDoctors from './ViewDoctors';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
   const [searchMobile, setSearchMobile] = useState('');
   const [doctorData, setDoctorData] = useState([]);
@@ -72,7 +75,7 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
 
       console.log('Fetching doctor data for mobile:', mobileNo); // Debug log
 
-      const response = await fetch('http://localhost:5000/MahavirHospital/api/filter-doctors', {
+      const response = await fetch(`${BASE_URL}/MahavirHospital/api/filter-doctors`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +114,7 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
 
         // Set preview image if exists
         if (doctor.FilePath && doctor.FilePath !== "N/A") {
-          setPreviewImage(`http://localhost:5000/${doctor.FilePath}`);
+          setPreviewImage(`${BASE_URL}/${doctor.FilePath}`);
         }
       } else {
         setError('Doctor not found with this mobile number');
@@ -156,7 +159,7 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
       }
 
       // Use filter-doctors API for consistency
-      const response = await fetch('http://localhost:5000/MahavirHospital/api/filter-doctors', {
+      const response = await fetch(`${BASE_URL}/MahavirHospital/api/filter-doctors`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -363,7 +366,7 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
       if (isEditMode) {
         // Use PUT request with axios for edit-doctor endpoint
         response = await axios.put(
-          'http://localhost:5000/MahavirHospital/api/edit-doctor',
+          `${BASE_URL}/MahavirHospital/api/edit-doctor`,
           formDataToSend,
           {
             headers: {
@@ -374,7 +377,7 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
         );
       } else {
         // Use existing fetch for registration
-        response = await fetch('http://localhost:5000/MahavirHospital/api/register-doctor', {
+        response = await fetch(`${BASE_URL}/MahavirHospital/api/register-doctor`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -546,7 +549,7 @@ const DoctorRegistration = ({ editMobileNo, onBackToView }) => {
                           <td>
                             {doctor.FilePath && doctor.FilePath !== "N/A" ? (
                               <img 
-                                src={`http://localhost:5000/${doctor.FilePath}`} 
+                                src={`${BASE_URL}/${doctor.FilePath}`} 
                                 alt="Profile" 
                                 className="profile-thumb"
                                 onError={(e) => {

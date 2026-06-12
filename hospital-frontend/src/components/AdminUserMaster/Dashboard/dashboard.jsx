@@ -6,6 +6,9 @@ import './dashboard.css';
 import drDashboardImage from '../../../assets/AdminUserMaster/dr-dashboard.png';
 import Sidebar from '../AdminUserMasterSideBar/sidebar';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const Dashboard = () => {
     const navigate = useNavigate();
     const [userName, setUserName] = useState('');
@@ -77,7 +80,7 @@ const Dashboard = () => {
 
             // Axios instance with default headers
             const apiClient = axios.create({
-                baseURL: 'http://localhost:5000',
+                baseURL: `${BASE_URL}`,
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -168,7 +171,7 @@ const Dashboard = () => {
 
     const getProfileImage = (filePath) => {
         if (!filePath) return null;
-        return `http://localhost:5000/${filePath.replace(/\\/g, '/')}`;
+        return `${BASE_URL}/${filePath.replace(/\\/g, '/')}`;
     };
 
     const getDefaultAvatar = () => {

@@ -3,6 +3,9 @@ import './TPAAffiliation.css';
 import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 // Dynamically require all images from assets/home/TPAAffiliation
 const images = require.context('../../assets/home/TPAAffiliation', false, /\.(png|jpe?g|svg)$/);
 
@@ -15,7 +18,7 @@ const TPAAffiliation = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/MahavirHospital/api/TPAAffiliation')
+    fetch(`${BASE_URL}/MahavirHospital/api/TPAAffiliation`)
       .then(res => res.json())
       .then(data => {
         setAffiliations(Array.isArray(data.data) ? data.data : []);

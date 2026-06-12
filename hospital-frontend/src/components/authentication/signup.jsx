@@ -5,6 +5,9 @@ import Navbar from '../header_footer/navbar';
 import Footer from '../header_footer/footer';
 import './signup.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const Signup = () => {
   const [step, setStep] = useState(1); // 1: mobile, 2: OTP, 3: details
   const [mobileNo, setMobileNo] = useState('');
@@ -49,7 +52,7 @@ const Signup = () => {
     try {
       // Always send 91-prefixed mobile number
       const prefixedMobileNo = getPrefixedMobileNo();
-      const res = await axios.post('http://localhost:5000/MahavirHospital/api/signup/send-otp', {
+      const res = await axios.post(`${BASE_URL}/MahavirHospital/api/signup/send-otp`, {
         mobileNo: prefixedMobileNo
       });
       // Store OTP and MobileNo from backend response
@@ -86,7 +89,7 @@ const Signup = () => {
     try {
       // Use storedMobileNo with 91 prefix for verification
       const prefixedMobileNo = '91' + storedMobileNo;
-      await axios.post('http://localhost:5000/MahavirHospital/api/signup/verify-otp', {
+      await axios.post(`${BASE_URL}/MahavirHospital/api/signup/verify-otp`, {
         mobileNo: prefixedMobileNo,
         otp
       });
@@ -126,7 +129,7 @@ const Signup = () => {
     }
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/MahavirHospital/api/signup/final-signup', {
+      await axios.post(`${BASE_URL}/MahavirHospital/api/signup/final-signup`, {
         UserName: userName,
         MobileNo: storedMobileNo,
         UserPassword: password,

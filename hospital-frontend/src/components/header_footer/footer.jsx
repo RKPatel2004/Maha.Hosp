@@ -4,6 +4,9 @@ import './footer.css';
 import MahavirLogo from '../../assets/Mahavir/Mahavir_short_logo.png';
 import axios from 'axios';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const Footer = () => {
   const [hospitals, setHospitals] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +15,7 @@ const Footer = () => {
   useEffect(() => {
     const fetchHospitals = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/hospitals', {
+        const response = await axios.get(`${BASE_URL}/api/hospitals`, {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json'

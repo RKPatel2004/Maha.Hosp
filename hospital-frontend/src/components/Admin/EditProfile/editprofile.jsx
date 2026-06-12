@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import Sidebar from '../AdminSideBar/sidebar';
 import './editprofile.css';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const EditProfile = () => {
     const navigate = useNavigate();
     const [userProfile, setUserProfile] = useState({
@@ -35,7 +38,7 @@ const EditProfile = () => {
                 return;
             }
 
-            const response = await axios.get('http://localhost:5000/MahavirHospital/api/get-user-profile', {
+            const response = await axios.get(`${BASE_URL}/MahavirHospital/api/get-user-profile`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -55,7 +58,7 @@ const EditProfile = () => {
                 setOriginalProfile(profileData);
 
                 if (data.filePath) {
-                    setPreviewImage(`http://localhost:5000/${data.filePath.replace(/\\/g, '/')}`);
+                    setPreviewImage(`${BASE_URL}/${data.filePath.replace(/\\/g, '/')}`);
                 } else {
                     setPreviewImage('/assets/ProfilePhoto/default_dp.png');
                 }
@@ -110,7 +113,7 @@ const EditProfile = () => {
             }
 
             const response = await axios.put(
-                'http://localhost:5000/MahavirHospital/api/edit-user-profile',
+                `${BASE_URL}/MahavirHospital/api/edit-user-profile`,
                 formData,
                 {
                     headers: {
@@ -135,7 +138,7 @@ const EditProfile = () => {
                 setUserProfile(newProfileData);
 
                 if (updatedData.filePath) {
-                    setPreviewImage(`http://localhost:5000/${updatedData.filePath.replace(/\\/g, '/')}`);
+                    setPreviewImage(`${BASE_URL}/${updatedData.filePath.replace(/\\/g, '/')}`);
                 } else {
                     setPreviewImage('/assets/ProfilePhoto/default_dp.png');
                 }
@@ -165,7 +168,7 @@ const EditProfile = () => {
         setUserProfile(originalProfile);
         setProfileImage(null);
         if (originalProfile.filePath) {
-            setPreviewImage(`http://localhost:5000/${originalProfile.filePath.replace(/\\/g, '/')}`);
+            setPreviewImage(`${BASE_URL}/${originalProfile.filePath.replace(/\\/g, '/')}`);
         } else {
             setPreviewImage('/assets/ProfilePhoto/default_dp.png');
         }
