@@ -49,8 +49,23 @@ connectDB();
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://hospital-management-frontend-lemon.vercel.app"
+];
+
 app.use(cors({
-  origin: "http://localhost:3000", 
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    const isAllowed = allowedOrigins.includes(origin) || origin.endsWith(".vercel.app");
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
